@@ -5,7 +5,7 @@ import com.hlopezg.data_repository.data_source.remote.RemoteHitDataSource
 import com.hlopezg.domain.entity.Hit
 import com.hlopezg.domain.repository.HitRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
 
 class HitRepositoryImpl(
@@ -20,5 +20,8 @@ class HitRepositoryImpl(
 
     override fun getHit(id: Int): Flow<Hit> = localDataSource.getHit(id)
 
-    override fun saveHits(hits: List<Hit>) = localDataSource.saveHits(hits)
+    override fun saveHits(hits: List<Hit>) = flow {
+        localDataSource.saveHits(hits)
+        this.emit(hits)
+    }
 }
