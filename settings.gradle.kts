@@ -21,4 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "PostList"
 include(":app")
- 
+include(":domain")
+include(":presentation-post")
+include(":data-remote")
+include(":data-local")
+include(":data-repository")
