@@ -15,6 +15,7 @@ retrofit = "2.11.0"
 daggerHilt = "2.51.1"
 navigationCompose = "2.8.0-beta01"
 hiltNavigationCompose = "1.2.0"
+uiCompose = "1.7.0-beta01"
 viewModel = "2.8.0"
 material3Android = "1.2.1"
 mockitoVersion = "5.3.1"
@@ -22,6 +23,7 @@ mockitoInlineVersion = "5.2.0"
 kotlinxCoroutines = "1.8.1"
 gson = "2.11.0"
 test-jvm = "1.8.1"
+material = "1.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +33,8 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiCompose" }
+androidx-compose-ui-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "uiCompose" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -55,6 +59,7 @@ testing-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", versi
 testing-mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockitoInlineVersion" }
 testing-kotlinx-coroutines = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-test', version.ref = "kotlinxCoroutines" }
 testing-kotlinx-coroutines-jvm = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-test-jvm', version.ref = "test-jvm" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
