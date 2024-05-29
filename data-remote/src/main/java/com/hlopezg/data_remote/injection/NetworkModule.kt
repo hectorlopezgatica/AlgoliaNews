@@ -28,7 +28,7 @@ class NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://hn.algolia.com//")
+        .baseUrl("https://hn.algolia.com/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

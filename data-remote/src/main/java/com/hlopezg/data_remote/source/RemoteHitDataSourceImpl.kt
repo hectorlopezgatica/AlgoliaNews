@@ -7,9 +7,10 @@ import com.hlopezg.domain.entity.Hit
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class RemoteHitDataSourceImpl(
-    val hitService: HitService,
+class RemoteHitDataSourceImpl @Inject constructor(
+    private val hitService: HitService,
 ) : RemoteHitDataSource {
     override fun getHits(): Flow<List<Hit>> = flow {
         emit(hitService.getPosts().hitApiModels)
@@ -19,15 +20,12 @@ class RemoteHitDataSourceImpl(
         }
     }
 
-    private fun convert(hit: HitApiModel) =
-        Hit(
-            author = hit.author,
-            comment_text = hit.comment_text,
-            created_at = hit.created_at,
-            story_id = hit.story_id,
-            story_title = hit.story_title,
-            story_url = hit.story_url,
-            updated_at = hit.updated_at,
-        )
-
+    private fun convert(hit: HitApiModel) = Hit(
+        author = hit.author,
+        created_at = hit.created_at,
+        story_id = hit.story_id,
+        story_title = hit.story_title ?: hit.title,
+        story_url = hit.story_url ?: "",
+        updated_at = hit.updated_at,
+    )
 }

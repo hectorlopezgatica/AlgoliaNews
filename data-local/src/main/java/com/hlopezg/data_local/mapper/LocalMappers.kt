@@ -6,7 +6,6 @@ import com.hlopezg.domain.entity.Hit
 fun HitEntity.toDomain() =
     Hit(
         author = this.author,
-        comment_text = this.commentText,
         created_at = this.createdAt,
         story_id = this.storyId,
         story_title = this.storyTitle,
@@ -17,7 +16,6 @@ fun HitEntity.toDomain() =
 fun Hit.toEntity() =
     HitEntity(
         author = this.author,
-        commentText = this.comment_text,
         createdAt = this.created_at,
         storyId = this.story_id,
         storyTitle = this.story_title,

@@ -1,7 +1,9 @@
 package com.hlopezg.data_remote.networking
 
+import com.google.gson.annotations.SerializedName
+
 data class PostsApiModel(
-    val hitApiModels: List<HitApiModel>,
-    val hitsPerPage: Int,
-    val page: Int,
+    @SerializedName("hits") val hitApiModels: List<HitApiModel>,
+    @SerializedName("hitsPerPage") val hitsPerPage: Int,
+    @SerializedName("page") val page: Int,
 )

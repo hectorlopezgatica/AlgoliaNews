@@ -10,8 +10,6 @@ data class HitEntity(
     @ColumnInfo("story_id")
     val storyId: Int,
     val author: String,
-    @ColumnInfo("comment_text")
-    val commentText: String,
     @ColumnInfo("created_at")
     val createdAt: String,
     @ColumnInfo("story_title")
