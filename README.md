@@ -29,8 +29,10 @@ This app uses three layers: presentation, domain and data. Where domain layer is
 
 ![Captura de pantalla 2024-05-30 133051](https://github.com/hectorlopezgatica/PostList/assets/116033767/145e64cb-d8fc-4eaf-b265-43ccbd7ce9b9)
 ![Captura de pantalla 2024-05-30 133136](https://github.com/hectorlopezgatica/PostList/assets/116033767/e661a0f0-44ec-4a6a-b2dc-42f4f1ec380c)
-![Captura de pantalla 2024-05-30 133124](https://github.com/hectorlopezgatica/PostList/assets/116033767/6726cc3b-bf07-4941-b922-94ec5e036bf7)
+![Captura de pantalla 2024-05-30 154146](https://github.com/hectorlopezgatica/PostList/assets/116033767/f628f5ee-d9e3-476c-8983-734d8443176a)
 ![Captura de pantalla 2024-05-30 133101](https://github.com/hectorlopezgatica/PostList/assets/116033767/67d101d3-c505-4a78-ae59-41fa93b4e13a)
+![Captura de pantalla 2024-05-30 155219](https://github.com/hectorlopezgatica/PostList/assets/116033767/444c2058-f546-48dd-8581-7d5d5dffd696)
+
 
 # Pending taks
 ![Captura de pantalla 2024-05-30 150402](https://github.com/hectorlopezgatica/PostList/assets/116033767/8d3eaf5a-d9a2-479a-8063-d60ab2c6a456)
