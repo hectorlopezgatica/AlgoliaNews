@@ -11,6 +11,7 @@ fun HitEntity.toDomain() =
         story_title = this.storyTitle,
         story_url = this.storyUrl,
         updated_at = this.updatedAt,
+        title = this.title,
     )
 
 fun Hit.toEntity() =
@@ -21,4 +22,5 @@ fun Hit.toEntity() =
         storyTitle = this.story_title,
         storyUrl = this.story_url,
         updatedAt = this.updated_at,
+        title = this.title,
     )

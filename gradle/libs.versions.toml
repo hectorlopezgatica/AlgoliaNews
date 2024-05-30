@@ -22,7 +22,8 @@ mockitoInlineVersion = "5.2.0"
 kotlinxCoroutines = "1.8.1"
 gson = "2.11.0"
 test-jvm = "1.7.3"
-uiCompose = "1.7.0-beta01"
+uiCompose = "1.7.0-beta02"
+serialization = "1.6.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -58,10 +59,10 @@ testing-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", versi
 testing-mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockitoInlineVersion" }
 testing-kotlinx-coroutines = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-test', version.ref = "kotlinxCoroutines" }
 testing-kotlinx-coroutines-jvm = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-test-jvm', version.ref = "test-jvm" }
+kotlinx-serialization-json = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-serialization-json', version.ref = "serialization" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-hilt-android = { id = "com.google.dagger.hilt.android"}
-ksp = { id = "com.google.devtools.ksp"}
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

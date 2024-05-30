@@ -1,11 +1,11 @@
 package com.hlopezg.presentation_post.list
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -17,8 +17,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.hlopezg.presentation_common.component.CommonScreen
-import com.hlopezg.presentation_common.getCurrentTimeDifference
+import com.hlopezg.presentation_common.component.ErrorComponent
+import com.hlopezg.presentation_common.component.LoadingComponentList
 
 @Composable
 fun PostScreen(
@@ -29,7 +32,7 @@ fun PostScreen(
     LaunchedEffect(Unit) {
         viewModel.submitAction(HitListUiAction.Load)
         viewModel.singleEventFlow.collect {
-            when(it) {
+            when (it) {
                 is HitListUiSingleEvent.OpenHitDetailScreen -> {
                     navigateToHitDetail(it.hit)
                 }
@@ -39,12 +42,17 @@ fun PostScreen(
 
     viewModel.uiStateFlow.collectAsState().value.let { state ->
         CommonScreen(state) {
-            LazyColumn (
+            LazyColumn(
                 contentPadding = PaddingValues(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = modifier,
             ) {
                 items(it.hitApiModels) { item ->
-                    Column {
+                    Column(
+                        modifier = Modifier.clickable {
+                            viewModel.submitAction(HitListUiAction.SingleHitClick(item))
+                        }
+                    ) {
                         Text(text = item.storyTitle, fontWeight = FontWeight.Bold)
                         Spacer(Modifier.height(8.dp))
                         Row {

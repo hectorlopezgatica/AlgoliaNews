@@ -21,12 +21,12 @@ class GetHitUseCaseTest {
 
     val fakeHit = Hit(
         author = "WallHabit",
-        comment_text = "I made this app to create the ultimate free commitment device for mobile users.<p>Features:\\n- Put a &quot;Wall&quot; in front of apps and unlock it by holding a button for X seconds\\n- Selectively block Shorts and Reels\\n- Block every youtube video under 2min\\n- Routine (disable app on certain hours) feature\\n- Time limit feature",
         created_at = "2024-05-27T15:26:36Z",
         story_id = 40491635,
         story_title = "WallHabit: Block YT Shorts, IG Reels, Videos < 2min",
         story_url = "https://play.google.com/store/apps/details?id=com.wallhabit.app&hl=en_US",
-        updated_at = "2024-05-27T15:27:46Z"
+        updated_at = "2024-05-27T15:27:46Z",
+        title = "",
     )
 
     @Test

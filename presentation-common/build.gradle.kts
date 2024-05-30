@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin("kapt")
-    id(libs.plugins.hilt.android.get().pluginId)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -33,7 +32,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
@@ -48,13 +47,10 @@ dependencies {
     implementation(libs.androidx.material3.android)
     debugImplementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.preview)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.navigation.compose)
-    implementation(libs.hilt.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     testImplementation(libs.testing.mockito)
     testImplementation(libs.testing.kotlinx.coroutines)
+    implementation(libs.kotlinx.serialization.json)
 }

@@ -7,4 +7,5 @@ data class Hit(
     val story_title: String,
     val story_url: String,
     val updated_at: String,
+    val title: String?,
 )

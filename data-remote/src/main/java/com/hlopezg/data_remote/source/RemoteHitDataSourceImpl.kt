@@ -27,5 +27,6 @@ class RemoteHitDataSourceImpl @Inject constructor(
         story_title = hit.story_title ?: hit.title,
         story_url = hit.story_url ?: "",
         updated_at = hit.updated_at,
+        title = hit.title,
     )
 }

@@ -17,7 +17,7 @@ fun <T : Any> CommonScreen(state: UiState<T>, onSuccess: @Composable (T) -> Unit
         }
 
         is UiState.Error -> {
-            Error(state.errorMessage)
+            ErrorComponent(state.errorMessage)
         }
 
         is UiState.Success -> {
@@ -27,7 +27,7 @@ fun <T : Any> CommonScreen(state: UiState<T>, onSuccess: @Composable (T) -> Unit
 }
 
 @Composable
-fun Error(errorMessage: String) {
+fun ErrorComponent(errorMessage: String) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom

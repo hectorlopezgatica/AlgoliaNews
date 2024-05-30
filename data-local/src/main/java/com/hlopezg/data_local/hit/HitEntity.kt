@@ -14,6 +14,8 @@ data class HitEntity(
     val createdAt: String,
     @ColumnInfo("story_title")
     val storyTitle: String,
+    @ColumnInfo("title")
+    val title: String?,
     @ColumnInfo("story_url")
     val storyUrl: String,
     @ColumnInfo("updated_at")

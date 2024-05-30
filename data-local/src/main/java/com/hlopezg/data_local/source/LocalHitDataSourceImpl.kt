@@ -22,8 +22,8 @@ class LocalHitDataSourceImpl @Inject constructor(
         it.toDomain()
     }
 
-    override fun saveHits(hits: List<Hit>) =
-        hitDao.save(hits.map { hit ->
-            hit.toEntity()
+    override fun saveHits(hit: List<Hit>) =
+        hitDao.save(hit.map { it ->
+            it.toEntity()
         })
 }
