@@ -75,11 +75,12 @@ fun PostScreen(
                         }
                     }
                 }
-
+                PullToRefreshContainer(
+                    modifier = Modifier.align(Alignment.TopCenter),
+                    state = pullToRefreshState,
+                )
             }
-            PullToRefreshContainer(
-                state = pullToRefreshState,
-            )
+
         }
     }
 }

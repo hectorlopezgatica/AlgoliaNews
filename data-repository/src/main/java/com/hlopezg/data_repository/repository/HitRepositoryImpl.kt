@@ -7,16 +7,17 @@ import com.hlopezg.domain.repository.HitRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
+import java.net.UnknownHostException
 
 class HitRepositoryImpl(
     private val localDataSource: LocalHitDataSource,
     private val remoteDataSource: RemoteHitDataSource,
 ) : HitRepository {
-    override fun getHits(): Flow<List<Hit>> =
-        remoteDataSource.getHits().onEach {
-            localDataSource.saveHits(it)
-        }
+    override fun getHits(): Flow<List<Hit>> = remoteDataSource.getHits().onEach {
+        localDataSource.saveHits(it)
+    }
 
+    override fun getLocalHits(): Flow<List<Hit>> = localDataSource.getHits()
 
     override fun getHit(id: Int): Flow<Hit> = localDataSource.getHit(id)
 

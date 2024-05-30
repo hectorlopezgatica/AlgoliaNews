@@ -4,6 +4,8 @@ sealed class UseCaseException(cause: Throwable) : Throwable(cause) {
 
     class PostException(cause: Throwable) : UseCaseException(cause)
 
+    class UnknownHostException(cause: Throwable) : UseCaseException(cause)
+
     class UnknownException(cause: Throwable) : UseCaseException(cause)
 
     companion object {

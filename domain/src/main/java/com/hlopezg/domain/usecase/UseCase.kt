@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import com.hlopezg.domain.entity.Result
+import java.net.UnknownHostException
 
 abstract class UseCase<I : UseCase.Request, O : UseCase.Response>(private val configuration: Configuration) {
 
@@ -16,7 +17,11 @@ abstract class UseCase<I : UseCase.Request, O : UseCase.Response>(private val co
         }
         .flowOn(configuration.dispatcher)
         .catch {
-            emit(Result.Error(UseCaseException.createFromThrowable(it)))
+            if(it is UseCaseException.UnknownHostException){
+                emit(Result.Error(UseCaseException.UnknownHostException(it), loadLocalData = true))
+            }else {
+                emit(Result.Error(UseCaseException.createFromThrowable(it)))
+            }
         }
 
     internal abstract fun process(request: I): Flow<O>
