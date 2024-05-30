@@ -4,6 +4,7 @@ import android.content.Context
 import com.hlopezg.domain.usecase.GetHitsUseCase
 import com.hlopezg.presentation_common.state.CommonResultConverter
 import com.hlopezg.presentation_post.mapper.toItemModel
+import com.hlopezg.presentation_post.model.PostModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 

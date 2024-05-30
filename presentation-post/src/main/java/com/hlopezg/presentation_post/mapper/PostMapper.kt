@@ -1,11 +1,8 @@
 package com.hlopezg.presentation_post.mapper
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.hlopezg.domain.entity.Hit
 import com.hlopezg.presentation_common.getCurrentTimeDifference
-import com.hlopezg.presentation_post.list.HitModel
-import java.text.SimpleDateFormat
+import com.hlopezg.presentation_post.model.HitModel
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId

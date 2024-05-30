@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.map
 
 class GetHitUseCase(
     configuration: Configuration,
-    val hitRepository: HitRepository,
+    private val hitRepository: HitRepository,
 ) :
     UseCase<GetHitUseCase.Request, GetHitUseCase.Response>(configuration) {
 

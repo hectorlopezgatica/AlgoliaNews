@@ -1,4 +1,4 @@
-package com.hlopezg.presentation_post.list
+package com.hlopezg.presentation_post.model
 
 import java.util.Date
 
