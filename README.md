@@ -32,7 +32,8 @@ This app uses three layers: presentation, domain and data. Where domain layer is
 ![Captura de pantalla 2024-05-30 133124](https://github.com/hectorlopezgatica/PostList/assets/116033767/6726cc3b-bf07-4941-b922-94ec5e036bf7)
 ![Captura de pantalla 2024-05-30 133101](https://github.com/hectorlopezgatica/PostList/assets/116033767/67d101d3-c505-4a78-ae59-41fa93b4e13a)
 
-
-
 # Pending taks
-Add swipe to delete
+![Captura de pantalla 2024-05-30 150402](https://github.com/hectorlopezgatica/PostList/assets/116033767/8d3eaf5a-d9a2-479a-8063-d60ab2c6a456)
+
+# Autor
+Héctor López Gatica
