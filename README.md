@@ -11,6 +11,19 @@ deleted it should not reappear even if the data is refreshed.
 
 If the app is used offline, it should show the items downloaded last time.
 
+# Libraries
+This use (mainly) this libreries:
+- Jetpack Compose
+- Material 3
+- Room
+- Dagger Hilt
+- Navigation Compose / Hilt Navigation Compose
+- Retrofit (and converter-gson)
+- ViewModel
+- Coroutines
+- Mockito
+- kotlinx-serialization-json
+
 # Architecture
 This app uses three layers: presentation, domain and data. Where domain layer is the main main (presentation and data layers depoens on domain layer). Also, this app uses MVI approach.
 
@@ -18,6 +31,8 @@ This app uses three layers: presentation, domain and data. Where domain layer is
 ![Captura de pantalla 2024-05-30 133136](https://github.com/hectorlopezgatica/PostList/assets/116033767/e661a0f0-44ec-4a6a-b2dc-42f4f1ec380c)
 ![Captura de pantalla 2024-05-30 133124](https://github.com/hectorlopezgatica/PostList/assets/116033767/6726cc3b-bf07-4941-b922-94ec5e036bf7)
 ![Captura de pantalla 2024-05-30 133101](https://github.com/hectorlopezgatica/PostList/assets/116033767/67d101d3-c505-4a78-ae59-41fa93b4e13a)
+
+
 
 # Pending taks
 Add swipe to delete
