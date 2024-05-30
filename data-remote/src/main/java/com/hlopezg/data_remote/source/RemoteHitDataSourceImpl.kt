@@ -31,11 +31,11 @@ class RemoteHitDataSourceImpl @Inject constructor(
 
     private fun convert(hit: HitApiModel) = Hit(
         author = hit.author,
-        created_at = hit.created_at,
-        story_id = hit.story_id,
-        story_title = hit.story_title ?: hit.title,
-        story_url = hit.story_url ?: "",
-        updated_at = hit.updated_at,
+        created_at = hit.createdAt,
+        story_id = hit.storyId,
+        story_title = hit.storyTitle ?: hit.title,
+        story_url = hit.storyUrl ?: "",
+        updated_at = hit.updatedAt,
         title = hit.title,
     )
 }
