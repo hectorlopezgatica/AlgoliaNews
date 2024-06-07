@@ -18,7 +18,7 @@ class GetHitUseCaseTest {
         hitRepository,
     )
 
-    val fakeHit = Hit(
+    private val fakeHit = Hit(
         author = "WallHabit",
         createdAt = "2024-05-27T15:26:36Z",
         storyId = 40491635,

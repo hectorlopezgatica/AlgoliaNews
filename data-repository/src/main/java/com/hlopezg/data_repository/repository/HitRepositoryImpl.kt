@@ -13,9 +13,11 @@ class HitRepositoryImpl(
     private val localDataSource: LocalHitDataSource,
     private val remoteDataSource: RemoteHitDataSource,
 ) : HitRepository {
-    override suspend fun getRemoteHits(): Flow<Posts> {
-        return remoteDataSource.getHits()
-    }
+    override fun getRemoteHits(): Flow<Posts> =
+        remoteDataSource.getHits().onEach {
+            localDataSource.saveHits(it.hitApiModels)
+        }
+
 
     override fun getLocalHits(): Flow<List<Hit>> = localDataSource.getHits()
 

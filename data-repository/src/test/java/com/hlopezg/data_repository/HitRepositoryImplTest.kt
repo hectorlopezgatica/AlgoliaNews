@@ -4,6 +4,7 @@ import com.hlopezg.data_repository.data_source.local.LocalHitDataSource
 import com.hlopezg.data_repository.data_source.remote.RemoteHitDataSource
 import com.hlopezg.data_repository.repository.HitRepositoryImpl
 import com.hlopezg.domain.entity.Hit
+import com.hlopezg.domain.entity.Posts
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -42,11 +43,17 @@ class HitRepositoryImplTest {
             ),
         )
 
+    private val posts = Posts(
+        hitApiModels = fakeHitList,
+        hitsPerPage = 20,
+        page = 0,
+    )
+
     @Test
     fun `test get Hits`() = runTest {
-        whenever(hitRepository.getRemoteHits()).thenReturn(flowOf(fakeHitList))
+        whenever(hitRepository.getRemoteHits()).thenReturn(flowOf(posts))
         val result = hitRepository.getRemoteHits().first()
-        Assert.assertEquals(result, fakeHitList)
+        Assert.assertEquals(result, posts)
     }
 
     @Test
@@ -54,12 +61,5 @@ class HitRepositoryImplTest {
         whenever(hitRepository.getHit(40491635)).thenReturn(flowOf(fakeHitList.first()))
         val result = hitRepository.getHit(40491635).first()
         Assert.assertEquals(result, fakeHitList.first())
-    }
-
-    @Test
-    fun `test save Hit`() = runTest {
-        whenever(hitRepository.saveHits(fakeHitList)).thenReturn(flowOf(fakeHitList))
-        val result = hitRepository.saveHits(fakeHitList).first()
-        Assert.assertEquals(result, fakeHitList)
     }
 }
