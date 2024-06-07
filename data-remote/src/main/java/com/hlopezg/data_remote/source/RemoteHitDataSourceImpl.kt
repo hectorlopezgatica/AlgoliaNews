@@ -4,6 +4,7 @@ import com.hlopezg.data_remote.networking.HitApiModel
 import com.hlopezg.data_remote.networking.service.HitService
 import com.hlopezg.data_repository.data_source.remote.RemoteHitDataSource
 import com.hlopezg.domain.entity.Hit
+import com.hlopezg.domain.entity.Posts
 import com.hlopezg.domain.entity.UseCaseException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -15,12 +16,17 @@ import javax.inject.Inject
 class RemoteHitDataSourceImpl @Inject constructor(
     private val hitService: HitService,
 ) : RemoteHitDataSource {
-    override fun getHits(): Flow<List<Hit>> = flow {
-        emit(hitService.getPosts().hitApiModels)
-    }.map { hitList ->
-        hitList.map {
+    override fun getHits(): Flow<Posts> = flow {
+        emit(hitService.getPosts())
+    }.map { post ->
+        val hits = post.hitApiModels.map {
             convert(it)
         }
+        Posts(
+            hitApiModels = hits,
+            hitsPerPage = post.hitsPerPage,
+            page = post.page,
+        )
     }.catch {
         if(it is UnknownHostException){
             throw UseCaseException.UnknownHostException(it)
@@ -29,13 +35,27 @@ class RemoteHitDataSourceImpl @Inject constructor(
         }
     }
 
+/*    override suspend fun getHits(): List<Hit> {
+        try{
+            return hitService.getPosts().hitApiModels.map { hitList ->
+                convert(hitList)
+            }
+        }catch (e: Exception){
+            if(e is UnknownHostException){
+                throw UseCaseException.UnknownHostException(e)
+            }else{
+                throw UseCaseException.PostException(e)
+            }
+        }
+    }*/
+
     private fun convert(hit: HitApiModel) = Hit(
         author = hit.author,
-        created_at = hit.created_at,
-        story_id = hit.story_id,
-        story_title = hit.story_title ?: hit.title,
-        story_url = hit.story_url ?: "",
-        updated_at = hit.updated_at,
+        createdAt = hit.createdAt,
+        storyId = hit.storyId,
+        storyTitle = hit.storyTitle ?: hit.title,
+        storyUrl = hit.storyUrl ?: "",
+        updatedAt = hit.updatedAt,
         title = hit.title,
     )
 }

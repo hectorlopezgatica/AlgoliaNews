@@ -1,11 +1,13 @@
 package com.hlopezg.domain.repository
 
 import com.hlopezg.domain.entity.Hit
+import com.hlopezg.domain.entity.Posts
 import kotlinx.coroutines.flow.Flow
 
 interface HitRepository {
-    fun getHits(): Flow<List<Hit>>
+    suspend fun getRemoteHits(): Flow<Posts>
     fun getLocalHits(): Flow<List<Hit>>
     fun getHit(id: Int): Flow<Hit>
-    fun saveHits(hits: List<Hit>): Flow<List<Hit>>
+    suspend fun saveHits(hits: List<Hit>)
+    suspend fun deleteHit(hits: Hit): Int
 }

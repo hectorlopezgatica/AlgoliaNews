@@ -12,15 +12,27 @@ import java.util.Date
 
 fun Hit.toItemModel(): HitModel {
     val pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
-    val localDateTime = LocalDateTime.parse(created_at, pattern)
+    val localDateTime = LocalDateTime.parse(createdAt, pattern)
 
     return HitModel(
         author = author,
         createdAt = localDateTime.getCurrentTimeDifference(),
-        storyId = story_id,
-        storyTitle = story_title,
-        storyUrl = story_url,
-        updatedAt = updated_at,
+        storyId = storyId,
+        storyTitle = storyTitle,
+        storyUrl = storyUrl,
+        updatedAt = updatedAt,
+    )
+}
+
+fun HitModel.toItem(): Hit {
+    return Hit(
+        author = author,
+        createdAt = createdAt,
+        storyId = storyId,
+        storyTitle = storyTitle,
+        storyUrl = storyUrl,
+        updatedAt = updatedAt,
+        title = storyTitle,
     )
 }
 
