@@ -20,4 +20,5 @@ data class HitEntity(
     val storyUrl: String,
     @ColumnInfo("updated_at")
     val updatedAt: String,
+    val deleted: Boolean = false,
 )

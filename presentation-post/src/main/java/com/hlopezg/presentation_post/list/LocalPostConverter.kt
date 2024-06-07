@@ -1,7 +1,6 @@
 package com.hlopezg.presentation_post.list
 
 import android.content.Context
-import com.hlopezg.domain.usecase.GetHitsUseCase
 import com.hlopezg.domain.usecase.GetLocalHitsUseCase
 import com.hlopezg.presentation_common.state.CommonResultConverter
 import com.hlopezg.presentation_post.mapper.toItemModel
@@ -16,8 +15,7 @@ class LocalPostConverter @Inject constructor(@ApplicationContext private val con
               page = data.post.page,
               hitApiModels = data.post.hitApiModels.map {
                   it.toItemModel()
-              },
-              hitsPerPage = data.post.hitsPerPage,
+              }.toMutableList(),
           )
     }
 }

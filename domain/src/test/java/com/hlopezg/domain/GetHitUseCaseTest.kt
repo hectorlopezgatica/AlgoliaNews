@@ -3,7 +3,6 @@ package com.hlopezg.domain
 import com.hlopezg.domain.entity.Hit
 import com.hlopezg.domain.repository.HitRepository
 import com.hlopezg.domain.usecase.GetHitUseCase
-import com.hlopezg.domain.usecase.GetHitsUseCase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -21,11 +20,11 @@ class GetHitUseCaseTest {
 
     val fakeHit = Hit(
         author = "WallHabit",
-        created_at = "2024-05-27T15:26:36Z",
-        story_id = 40491635,
-        story_title = "WallHabit: Block YT Shorts, IG Reels, Videos < 2min",
-        story_url = "https://play.google.com/store/apps/details?id=com.wallhabit.app&hl=en_US",
-        updated_at = "2024-05-27T15:27:46Z",
+        createdAt = "2024-05-27T15:26:36Z",
+        storyId = 40491635,
+        storyTitle = "WallHabit: Block YT Shorts, IG Reels, Videos < 2min",
+        storyUrl = "https://play.google.com/store/apps/details?id=com.wallhabit.app&hl=en_US",
+        updatedAt = "2024-05-27T15:27:46Z",
         title = "",
     )
 

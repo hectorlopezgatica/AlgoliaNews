@@ -43,6 +43,10 @@ abstract class MviViewModel<T : Any, S : UiState<T>, A : UiAction, E : UiSingleE
         }
     }
 
+    fun getState(): S {
+        return _uiStateFlow.value
+    }
+
     fun submitSingleEvent(event: E) {
         viewModelScope.launch {
             _singeEventFlow.send(event)

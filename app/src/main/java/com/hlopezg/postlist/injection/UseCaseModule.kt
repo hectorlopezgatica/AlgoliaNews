@@ -1,8 +1,9 @@
 package com.hlopezg.postlist.injection
 
 import com.hlopezg.domain.repository.HitRepository
+import com.hlopezg.domain.usecase.DeleteLocalHitUseCase
 import com.hlopezg.domain.usecase.GetHitUseCase
-import com.hlopezg.domain.usecase.GetHitsUseCase
+import com.hlopezg.domain.usecase.GetRemoteHitsAndSaveItUseCase
 import com.hlopezg.domain.usecase.GetLocalHitsUseCase
 import com.hlopezg.domain.usecase.UseCase
 import dagger.Module
@@ -30,8 +31,8 @@ class UseCaseModule {
     fun provideHitsUseCase(
         configuration: UseCase.Configuration,
         hitRepository: HitRepository,
-    ): GetHitsUseCase = GetHitsUseCase(
-        configuration = configuration,
+    ): GetRemoteHitsAndSaveItUseCase = GetRemoteHitsAndSaveItUseCase(
+       configuration = configuration,
         hitRepository = hitRepository,
     )
 
@@ -40,6 +41,15 @@ class UseCaseModule {
         configuration: UseCase.Configuration,
         hitRepository: HitRepository,
     ): GetLocalHitsUseCase = GetLocalHitsUseCase(
+        configuration = configuration,
+        hitRepository = hitRepository,
+    )
+
+    @Provides
+    fun provideDeleteLocalHitsUseCase(
+        configuration: UseCase.Configuration,
+        hitRepository: HitRepository,
+    ): DeleteLocalHitUseCase = DeleteLocalHitUseCase(
         configuration = configuration,
         hitRepository = hitRepository,
     )

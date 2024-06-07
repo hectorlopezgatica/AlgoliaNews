@@ -1,39 +1,37 @@
 package com.hlopezg.presentation_post.list
 
 import androidx.lifecycle.viewModelScope
-import com.hlopezg.domain.entity.Result
-import com.hlopezg.domain.usecase.GetHitsUseCase
+import com.hlopezg.domain.usecase.DeleteLocalHitUseCase
 import com.hlopezg.domain.usecase.GetLocalHitsUseCase
+import com.hlopezg.domain.usecase.GetRemoteHitsAndSaveItUseCase
 import com.hlopezg.presentation_common.state.MviViewModel
 import com.hlopezg.presentation_common.state.UiState
+import com.hlopezg.presentation_post.mapper.toItem
+import com.hlopezg.presentation_post.model.HitModel
 import com.hlopezg.presentation_post.model.PostModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-data class PostState(
-    val postModel: PostModel? = null,
-    val isLoading: Boolean = false,
-    val error: String? = null
-)
-
 @HiltViewModel
 class PostViewModel @Inject constructor(
-    private val hitsUseCase: GetHitsUseCase,
+    private val remoteHitsUseCase: GetRemoteHitsAndSaveItUseCase,
     private val localHitsUseCase: GetLocalHitsUseCase,
-    private val postConverter: PostConverter,
+    private val deleteLocalHitsUseCase: DeleteLocalHitUseCase,
     private val localPostConverter: LocalPostConverter,
 ) : MviViewModel<PostModel, UiState<PostModel>, HitListUiAction, HitListUiSingleEvent>() {
+    var currentPage = 0
+
     override fun initState(): UiState<PostModel> = UiState.Loading
     override fun handleAction(action: HitListUiAction) {
         when (action) {
-            HitListUiAction.Load -> {
-                loadPost()
+            HitListUiAction.LoadRemote -> {
+                loadRemotePost()
             }
 
             HitListUiAction.Update -> {
-                loadPost()
+                loadRemotePost()
             }
 
             is HitListUiAction.SingleHitClick -> {
@@ -41,31 +39,38 @@ class PostViewModel @Inject constructor(
                     HitListUiSingleEvent.OpenHitDetailScreen(action.hit)
                 )
             }
+
+            is HitListUiAction.DeleteItem -> {
+                deleteLocalHit(action.hit)
+            }
         }
     }
 
-    private fun loadPost() {
+    init {
+        loadLocalPost()
+    }
+
+    private fun loadRemotePost() {
         viewModelScope.launch {
-            hitsUseCase.execute(GetHitsUseCase.Request).map { result ->
-                postConverter.convert(result)
-            }.collect {
-                if(it is UiState.Error && it.loadLocalData){
-                    loadLocalPost()
-                }
+            remoteHitsUseCase.execute(GetRemoteHitsAndSaveItUseCase.Request).collect()
+        }
+    }
+
+    private fun loadLocalPost() {
+        viewModelScope.launch {
+            localHitsUseCase.execute(GetLocalHitsUseCase.Request).collect {
                 submitState(
-                    it
+                    localPostConverter.convert(it)
                 )
             }
         }
     }
 
-    private suspend fun loadLocalPost(){
-        localHitsUseCase.execute(GetLocalHitsUseCase.Request).map { result ->
-            localPostConverter.convert(result)
-        }.collect {
-            submitState(
-                it
-            )
+    private fun deleteLocalHit(hit: HitModel) {
+        viewModelScope.launch {
+            deleteLocalHitsUseCase.execute(DeleteLocalHitUseCase.Request(hit.toItem())).collect {
+                loadLocalPost()
+            }
         }
     }
 }
