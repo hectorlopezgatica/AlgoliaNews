@@ -4,5 +4,5 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.android.library) apply false
     id("com.google.dagger.hilt.android") version "2.51.1" apply false
-    id("com.google.devtools.ksp") version "1.9.23-1.0.20" apply false
+    id("com.google.devtools.ksp") version "1.9.23-1.0.20" apply false //"2.0.0-1.0.21"
 }

@@ -64,6 +64,6 @@ class RemoteHitDataSourceImplTest {
         val postApiModel = PostsApiModel(remoteHits, hitsPerPage = 20, page = 1)
         whenever(hitService.getPosts()).thenReturn(postApiModel)
         val result = remoteHitDataSource.getHits().first()
-        assert(result == expectedHits)
+        assert(result.hitApiModels == expectedHits)
     }
 }

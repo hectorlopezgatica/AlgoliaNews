@@ -1,11 +1,18 @@
 package com.hlopezg.domain
 
 import com.hlopezg.domain.entity.Hit
+import com.hlopezg.domain.entity.Posts
 import com.hlopezg.domain.repository.HitRepository
 import com.hlopezg.domain.usecase.GetRemoteHitsAndSaveItUseCase
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.test.runTest
+import org.junit.Assert
+import org.junit.Test
 import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
-class GetHitsUseCaseTest {
+class GetRemoteHitsAndSaveItUseCaseTest {
     private val hitRepository: HitRepository = mock<HitRepository>()
     private val useCase = GetRemoteHitsAndSaveItUseCase(
         mock(),
@@ -34,12 +41,19 @@ class GetHitsUseCaseTest {
             ),
         )
 
-/*    @Test
-    fun `test HitsUseCase`() = runTest {
-        val request = GetHitsUseCase.Request
+    private val posts = Posts(
+        hitApiModels = fakeHitList,
+        hitsPerPage = 20,
+        page = 0,
+    )
 
-        whenever(hitRepository.getHits()).thenReturn(flowOf(fakeHitList))
+    @Test
+    fun `test HitsUseCase`() = runTest {
+        val request = GetRemoteHitsAndSaveItUseCase.Request
+
+        whenever(hitRepository.getRemoteHits()).thenReturn(flowOf(posts))
+        whenever(hitRepository.saveHits(fakeHitList)).thenReturn(Unit)
         val response = useCase.process(request).first()
-        Assert.assertEquals(GetHitsUseCase.Response(fakeHitList), response)
-    }*/
+        Assert.assertEquals(GetRemoteHitsAndSaveItUseCase.Response(posts), response)
+    }
 }

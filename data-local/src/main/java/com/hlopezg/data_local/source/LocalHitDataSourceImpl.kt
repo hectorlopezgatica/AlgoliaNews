@@ -6,7 +6,6 @@ import com.hlopezg.data_local.mapper.toEntity
 import com.hlopezg.data_repository.data_source.local.LocalHitDataSource
 import com.hlopezg.domain.entity.Hit
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 

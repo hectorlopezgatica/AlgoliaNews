@@ -10,6 +10,7 @@ import com.hlopezg.presentation_post.mapper.toItem
 import com.hlopezg.presentation_post.model.HitModel
 import com.hlopezg.presentation_post.model.PostModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
