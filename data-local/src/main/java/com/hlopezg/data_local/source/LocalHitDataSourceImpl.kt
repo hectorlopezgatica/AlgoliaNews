@@ -23,7 +23,7 @@ class LocalHitDataSourceImpl @Inject constructor(
     }
 
     override suspend fun saveHits(hit: List<Hit>) =
-        hitDao.save(hit.map { it ->
+        hitDao.save(hit.map {
             it.toEntity()
         })
 

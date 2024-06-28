@@ -8,7 +8,7 @@ import com.hlopezg.presentation_post.model.PostModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class LocalPostConverter @Inject constructor(@ApplicationContext private val context: Context) :
+class LocalPostConverter @Inject constructor() :
     CommonResultConverter<GetLocalHitsUseCase.Response, PostModel>() {
     override fun convertSuccess(data: GetLocalHitsUseCase.Response): PostModel {
           return PostModel(

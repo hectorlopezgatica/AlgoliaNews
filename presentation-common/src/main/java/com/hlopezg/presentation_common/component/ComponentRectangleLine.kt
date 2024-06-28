@@ -37,22 +37,6 @@ fun ComponentRectangleLineLong(modifier: Modifier = Modifier) {
     )
 }
 
-@Composable
-fun ComponentRectangleParagraphLong(modifier: Modifier = Modifier) {
-    Column {
-        repeat(6) {
-            Box(
-                modifier = modifier
-                    .clip(shape = RoundedCornerShape(8.dp))
-                    .background(color = Color.LightGray)
-                    .fillMaxWidth()
-                    .height(16.dp)
-                    .shimmerLoadingAnimation()
-            )
-        }
-    }
-}
-
 @Preview
 @Composable
 fun ComponentCircle(modifier: Modifier = Modifier) {

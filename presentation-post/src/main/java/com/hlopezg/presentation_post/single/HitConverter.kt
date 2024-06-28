@@ -8,7 +8,7 @@ import com.hlopezg.presentation_post.model.HitModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class HitConverter @Inject constructor(@ApplicationContext private val context: Context) :
+class HitConverter @Inject constructor() :
     CommonResultConverter<GetHitUseCase.Response, HitModel>() {
     override fun convertSuccess(data: GetHitUseCase.Response) = data.hit.toItemModel()
 }

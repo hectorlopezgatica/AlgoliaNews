@@ -10,7 +10,6 @@ import com.hlopezg.presentation_post.mapper.toItem
 import com.hlopezg.presentation_post.model.HitModel
 import com.hlopezg.presentation_post.model.PostModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,8 +21,6 @@ class PostViewModel @Inject constructor(
     private val deleteLocalHitsUseCase: DeleteLocalHitUseCase,
     private val localPostConverter: LocalPostConverter,
 ) : MviViewModel<PostModel, UiState<PostModel>, HitListUiAction, HitListUiSingleEvent>() {
-    var currentPage = 0
-
     override fun initState(): UiState<PostModel> = UiState.Loading
     override fun handleAction(action: HitListUiAction) {
         when (action) {

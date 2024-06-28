@@ -6,7 +6,7 @@ abstract class CommonResultConverter<T : Any, R : Any> {
     fun convert(result: Result<T>): UiState<R> {
         return when (result) {
             is Result.Error -> {
-                UiState.Error(result.exception.localizedMessage.orEmpty(), result.loadLocalData)
+                UiState.Error(result.exception.localizedMessage.orEmpty())
             }
 
             is Result.Success -> {

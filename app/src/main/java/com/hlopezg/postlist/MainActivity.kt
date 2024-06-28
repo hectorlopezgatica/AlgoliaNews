@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
                                 modifier = Modifier.padding(innerPadding),
                             )
                         }
-                        composable<Routes.ScreenHit> { it ->
+                        composable<Routes.ScreenHit> {
                             val args = it.toRoute<Routes.ScreenHit>()
                             HitScreen(
                                 viewModel = hiltViewModel(),
