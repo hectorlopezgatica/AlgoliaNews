@@ -3,20 +3,21 @@ package com.hlopezg.presentation_post.mapper
 import com.hlopezg.domain.entity.Hit
 import com.hlopezg.presentation_common.getCurrentTimeDifference
 import com.hlopezg.presentation_post.model.HitModel
+import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 import java.util.Date
-
+import java.util.Locale
+import java.util.TimeZone
 
 fun Hit.toItemModel(): HitModel {
-    val pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
-    val localDateTime = LocalDateTime.parse(createdAt, pattern)
+    val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+    formatter.timeZone = TimeZone.getTimeZone("UTC")
+    val result = formatter.parse(createdAt)
 
     return HitModel(
         author = author,
-        createdAt = localDateTime.getCurrentTimeDifference(),
+        createdAt = result.getCurrentTimeDifference(),
         storyId = storyId,
         storyTitle = storyTitle,
         storyUrl = storyUrl,
