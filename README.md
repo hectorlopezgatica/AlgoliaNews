@@ -1,4 +1,4 @@
-# PostList
+# Algolia News
  
 This Android app is a simple app which shows a list of posts from this query:
 
