@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class GetRemoteHitsAndSaveItUseCase(
-    configuration: UseCase.Configuration,
+    configuration: Configuration,
     private val hitRepository: HitRepository,
 ) : UseCase<GetRemoteHitsAndSaveItUseCase.Request, GetRemoteHitsAndSaveItUseCase.Response>(
     configuration

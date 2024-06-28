@@ -37,17 +37,6 @@ fun ComponentRectangleFullSize() {
     )
 }
 
-@Composable
-fun ComponentRectangle() {
-    Box(
-        modifier = Modifier
-            .background(color = Color.LightGray)
-            .height(150.dp)
-            .width(100.dp)
-            .shimmerLoadingAnimation()
-    )
-}
-
 fun Modifier.shimmerLoadingAnimation(
     widthOfShadowBrush: Int = 500,
     angleOfAxisY: Float = 270f,

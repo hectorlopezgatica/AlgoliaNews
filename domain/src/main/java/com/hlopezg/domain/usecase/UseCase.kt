@@ -1,13 +1,12 @@
 package com.hlopezg.domain.usecase
 
+import com.hlopezg.domain.entity.Result
 import com.hlopezg.domain.entity.UseCaseException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import com.hlopezg.domain.entity.Result
-import java.net.UnknownHostException
 
 abstract class UseCase<I : UseCase.Request, O : UseCase.Response>(private val configuration: Configuration) {
 
@@ -17,9 +16,9 @@ abstract class UseCase<I : UseCase.Request, O : UseCase.Response>(private val co
         }
         .flowOn(configuration.dispatcher)
         .catch {
-            if(it is UseCaseException.UnknownHostException){
+            if (it is UseCaseException.UnknownHostException) {
                 emit(Result.Error(UseCaseException.UnknownHostException(it), loadLocalData = true))
-            }else {
+            } else {
                 emit(Result.Error(UseCaseException.createFromThrowable(it)))
             }
         }

@@ -6,7 +6,6 @@ import com.hlopezg.domain.entity.Hit
 import com.hlopezg.domain.entity.Posts
 import com.hlopezg.domain.repository.HitRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
 
 class HitRepositoryImpl(

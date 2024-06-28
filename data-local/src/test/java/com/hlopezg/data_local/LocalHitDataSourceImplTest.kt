@@ -17,7 +17,7 @@ class LocalHitDataSourceImplTest {
     private val hitDao = Mockito.mock<HitDao>()
     private val movieDataSource = LocalHitDataSourceImpl(hitDao)
 
-    val localHits = listOf(
+    private val localHits = listOf(
         HitEntity(
             author = "WallHabit",
             createdAt = "2024-05-27T15:26:36Z",
