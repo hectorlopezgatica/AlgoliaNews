@@ -27,15 +27,11 @@ This use (mainly) this libreries:
 # Architecture
 This app uses three layers: presentation, domain and data. Where domain layer is the main main (presentation and data layers depoens on domain layer). Also, this app uses MVI approach.
 
-![Captura de pantalla 2024-05-30 133051](https://github.com/hectorlopezgatica/PostList/assets/116033767/145e64cb-d8fc-4eaf-b265-43ccbd7ce9b9)
-![Captura de pantalla 2024-05-30 133136](https://github.com/hectorlopezgatica/PostList/assets/116033767/e661a0f0-44ec-4a6a-b2dc-42f4f1ec380c)
-![Captura de pantalla 2024-05-30 154146](https://github.com/hectorlopezgatica/PostList/assets/116033767/f628f5ee-d9e3-476c-8983-734d8443176a)
-![Captura de pantalla 2024-05-30 133101](https://github.com/hectorlopezgatica/PostList/assets/116033767/67d101d3-c505-4a78-ae59-41fa93b4e13a)
-![Captura de pantalla 2024-05-30 155219](https://github.com/hectorlopezgatica/PostList/assets/116033767/444c2058-f546-48dd-8581-7d5d5dffd696)
-
-
-# Pending taks
-![Captura de pantalla 2024-05-30 150402](https://github.com/hectorlopezgatica/PostList/assets/116033767/8d3eaf5a-d9a2-479a-8063-d60ab2c6a456)
+![Captura de pantalla 2024-07-01 171113](https://github.com/hectorlopezgatica/AlgoliaNews/assets/116033767/614525d1-4ba4-4033-92ee-d953bad37a3f)
+![Captura de pantalla 2024-07-01 171057](https://github.com/hectorlopezgatica/AlgoliaNews/assets/116033767/5f19d2fe-cf8b-4f85-a7d7-f0e5fba45236)
+![Captura de pantalla 2024-07-01 171045](https://github.com/hectorlopezgatica/AlgoliaNews/assets/116033767/8667c256-8478-4552-b993-63f0149f254f)
+![Captura de pantalla 2024-07-01 171135](https://github.com/hectorlopezgatica/AlgoliaNews/assets/116033767/4ee3292c-7ed5-438c-81ec-7b88ad9f42e8)
+![Captura de pantalla 2024-07-01 171123](https://github.com/hectorlopezgatica/AlgoliaNews/assets/116033767/13dc30a7-0a72-4866-b10f-71a1fdbc8eba)
 
 # Autor
 Héctor López Gatica
